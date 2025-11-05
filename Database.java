@@ -4,8 +4,8 @@ public class Database {
     public int stock;
     public String tags[];
 
-    groceryItem sendData(double price, int stock) {
-        return this.price, this.stock;
+    <groceryItem> double sendData(double price, int stock) {
+
     }
 
     void getData(double price, int stock) {
