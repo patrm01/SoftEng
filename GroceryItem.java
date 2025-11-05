@@ -10,4 +10,17 @@ public class GroceryItem {
         this.price = price;
         this.itemId = itemID;
     }
+
+    public String getName(String name) {
+        return name;
+    }
+    public int getStock(int stock) {
+        return stock;
+    }
+    public double getPrice(double price) {
+        return price;
+    }
+    public int getItemId(int itemId) {
+        return  itemId;
+    }
 }
