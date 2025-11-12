@@ -12,17 +12,29 @@ public class GroceryItem {
         this.filterFlag = "";
     }
 
-    public String getName(String name) {
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName(){
         return name;
     }
-    public int getStock(int stock) {
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    public int getStock() {
         return stock;
     }
-    public double getPrice(double price) {
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    public double getPrice() {
         return price;
     }
-    public int getItemId(int itemId) {
-        return  itemId;
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
+    public int getItemId() {
+        return itemId;
     }
     public String getFilterFlag() {
         return filterFlag;
@@ -32,4 +44,5 @@ public class GroceryItem {
             this.filterFlag = filterFlag;
         }
     }
+
 }
