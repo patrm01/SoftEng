@@ -4,6 +4,14 @@ public class Customer {
     private String firstName, lastName;
     private int customerAge;
 
+	public Customer(String paymentInfo, int balance, String firstName, String lastName, int customerAge) {
+		this.paymentInfo = paymentInfo;
+		this.balance = balance;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.customerAge = customerAge;
+	}
+
     //defining boilerplate getters and setters
     public int getBalance() {
         return balance;
@@ -14,7 +22,7 @@ public class Customer {
     }
 
     public String getPaymentInfo() {
-        "1234 5678 9100"
+        return paymentInfo;
     }
 
     public void setPaymentInfo(String paymentInfo) {
