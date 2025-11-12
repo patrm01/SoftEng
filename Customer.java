@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+
 public class Customer {
     private String paymentInfo;
     private int balance;
     private String firstName, lastName;
     private int customerAge;
+
+	private ArrayList<GroceryItem> cart;
 
 	public Customer(String paymentInfo, int balance, String firstName, String lastName, int customerAge) {
 		this.paymentInfo = paymentInfo;
@@ -10,6 +14,7 @@ public class Customer {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.customerAge = customerAge;
+		cart = new ArrayList<>();
 	}
 
     //defining boilerplate getters and setters
@@ -32,7 +37,7 @@ public class Customer {
     {
         this.paymentInfo = paymentInfo;
     }
-		else(System.out.println("Invalid info, please try again."));
+		else(System.out.println("Invalid info, please enter 12 digits in quotes."));
 
     public String getFirstName() {
         return firstName;
@@ -60,6 +65,5 @@ public class Customer {
         } else {
             System.out.println("Customer Age is invalid.");
         }
-
     }
 }
