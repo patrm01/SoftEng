@@ -1,15 +1,37 @@
 public class Database {
+    private ArrayList<GroceryItem> storeList = new ArrayList<GroceryItem>();
+    storeList.add(new GroceryItem("milk", 20, 3.50, 0));
+    storeList.add(new GroceryItem("eggs", 100, 1.75, 1));
+    storeList.add(new GroceryItem("cheese", 25, 0.30, 2));
 
-    public double price;
-    public int stock;
-    public String tags[];
-
-    <groceryItem> double sendData(double price, int stock) {
-
+    public void addNewItem(String name, int stockCount, double price, int itemID) {
+        storeList.add(new Groceryitem(name, stockCount, price, itemID));
     }
 
-    void getData(double price, int stock) {
-        this.price = price;
-        this.stock = stock;
+    public boolean removeItem(String itemName) {
+        GroceryItem item = checkItemInDatabase(itemName);
+        if(storeList.remove(item) == true) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removeItem(GroceryItem item) {
+        if(storeList.remove(item) == true) {
+            return true;
+        }
+        return false;
+    }
+
+    public GroceryItem checkItemInDatabase(String itemName) {
+        for(item : storeList) {
+            if(item.GetName().equals(itemName)) {
+                return(item);
+            }
+        }
+    }
+
+    public ArrayList<GroceryItem> getStoreList() {
+        return storeList;
     }
 }
