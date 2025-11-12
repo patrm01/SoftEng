@@ -5,7 +5,6 @@ public class Customer {
     private int balance;
     private String firstName, lastName;
     private int customerAge;
-
 	private ArrayList<GroceryItem> cart;
 
 	public Customer(String paymentInfo, int balance, String firstName, String lastName, int customerAge) {
@@ -65,5 +64,21 @@ public class Customer {
         } else {
             System.out.println("Customer Age is invalid.");
         }
+    }
+
+	public void calculateTotal() {
+		this.balance = 0;
+        for(GroceryItem item: cart) {
+			balance += item.getPrice();
+		}
+    }
+
+    public void addToCart(GroceryItem add){
+        cart.add(add);
+        this.calculateTotal(cart);
+    }
+    public void removeFromCart(GroceryItem remove){
+        cart.remove(remove);
+        this.calculateTotal(cart);
     }
 }
