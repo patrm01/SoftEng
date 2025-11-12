@@ -1,22 +1,57 @@
 public class Customer {
-	private String paymentInfo;
-	private int balance;
-	private String firstName, lastName;
-	private int customerAge;
-	
-	//defining boilerplate getters and setters
-	public int getBalance(){}
-	public void setBalance(int newBalance){}
+    private String paymentInfo;
+    private int balance;
+    private String firstName, lastName;
+    private int customerAge;
 
-	public String getPaymentInfo(){}
-	public void setPaymentInfo(String paymentInfo){}
+    //defining boilerplate getters and setters
+    public int getBalance() {
+        return balance;
+    }
 
-	public String getFirstName(){}
-	public void setFirstName(String firstName){}
+    public void setBalance(int newBalance) {
+        balance = newBalance;
+    }
 
-	public String getLastName(){}
-	public void setLastName(String lastName){}
+    public String getPaymentInfo() {
+        "1234 5678 9100"
+    }
 
-	public int getCustomerAge(){}
-	public void setCustomerAge(int age){}
+    public void setPaymentInfo(String paymentInfo) {
+    }
+		if(paymentInfo.length()==12)
+
+    {
+        this.paymentInfo = paymentInfo;
+    }
+		else(System.out.println("Invalid info, please try again."));
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getCustomerAge() {
+        return customerAge;
+    }
+
+    public void setCustomerAge(int age) {
+        if (customerAge > 0) {
+            this.customerAge = customerAge;
+        } else {
+            System.out.println("Customer Age is invalid.");
+        }
+
+    }
 }
