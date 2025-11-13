@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Customer {
     private String paymentInfo;
@@ -80,5 +83,24 @@ public class Customer {
     public void removeFromCart(GroceryItem remove){
         cart.remove(remove);
         this.calculateTotal(cart);
+    }
+
+    public void writeReceiptToFile(String filename) {
+        try(PrintWriter out = new PrinterWriter(new FileWriter(filename))) {
+            out.printf("%-20s %8s 510s%n", "Item", "Qty", "Price");
+
+            for(GroceryItem item : cart) {
+                String itemName = item.getName();
+                double price = item.getPrice();
+                int quantity = 1;
+
+                out.printf("%-20s %8d %10.2f%n", itemName, quantity, price);
+            }
+            out.println();
+            out.printf("Customer: %s %s%n", firstName, lastName);
+            out.printf("Amount paid: %.2f%n", balance);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

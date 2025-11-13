@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Database {
     private ArrayList<GroceryItem> storeList = new ArrayList<GroceryItem>();
     storeList.add(new GroceryItem("milk", 20, 3.50, 0));

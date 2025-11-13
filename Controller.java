@@ -1,8 +1,15 @@
 import java.util.ArrayList;
 
 public class Controller {
-    public getData() {
 
+    private Database database;
+
+    public Controller() {
+        database = new Database();
+    }
+
+    public ArrayList<GroceryItem> getData() {
+        return database.getStoreList();
     }
 
     public sendDatabase() {
@@ -20,8 +27,13 @@ public class Controller {
     public ArrayList<GroceryItem> filterItems(ArrayList<String> filters){
         ArrayList<GroceryItem> items = new ArrayList<>();
         if (filters == null || filters.size() == 0){
-            return
+            return items;
         }
+        return items;
 
+    }
+
+    public ArrayList<GroceryItem> getCart() {
+        return cart;
     }
 }
