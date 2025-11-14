@@ -1,2 +1,0 @@
-# SoftEng
-In class project
