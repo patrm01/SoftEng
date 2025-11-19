@@ -8,7 +8,7 @@ public class GroceryCart {
 	}
 
     public ArrayList<GroceryItem> getCart() {
-        return cart;
+        return cart.clone();
     }
 
     public void addToCart(GroceryItem add) {
