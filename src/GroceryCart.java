@@ -1,5 +1,7 @@
 public class GroceryCart {
 	private ArrayList<GroceryItem> cart;
+	private double subTotal;
+	private final double taxRate = 0.07; 
 
 	public GroceryCart(){
 		cart = new ArrayList<GroceryItem>();
@@ -21,5 +23,19 @@ public class GroceryCart {
 
     public void clearCart() {
     	cart.clear();
+    }	
+
+    public void calculateSubtotal(){
+    	for(GroceryItem item : cart) {
+    		this.subTotal += item.getPrice();
+    	}
+    }
+
+    public double getSubtotal() {
+    	return this.subTotal;
+    }
+
+    public double calculateTotalWithTax() {
+    	return ((this.subTotal * taxRate) + this.subTotal)
     }
 }

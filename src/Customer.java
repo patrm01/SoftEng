@@ -5,26 +5,26 @@ import java.io.PrintWriter;
 
 public class Customer {
     private String paymentInfo;
-    private double balance;
+    private double budget;
     private String firstName, lastName;
     private int customerAge;
     private GroceryCart cart = new GroceryCart()
 
-    public Customer(String paymentInfo, double balance, String firstName, String lastName, int customerAge) {
+    public Customer(String paymentInfo, double budget, String firstName, String lastName, int customerAge) {
         this.paymentInfo = paymentInfo;
-        this.balance = balance;
+        this.budget = budget;
         this.firstName = firstName;
         this.lastName = lastName;
         this.customerAge = customerAge;
     }
 
     //defining boilerplate getters and setters
-    public double getBalance() {
-        return balance;
+    public double getBudget() {
+        return budget;
     }
 
-    public void setBalance(double newBalance) {
-        balance = newBalance;
+    public void setBudget(double newBalance) {
+        budget = newBalance;
     }
 
     public String getPaymentInfo() {
@@ -66,19 +66,19 @@ public class Customer {
         }
     }
 
-    // public ArrayList<GroceryItem> getCart() {
-    //     return cart;
-    // }
+    public ArrayList<GroceryItem> getCart() {
+        return cart;
+    }
 
-    // public void addToCart(GroceryItem add) {
-    //     cart.add(add);
-    //     this.calculateTotal();
-    // }
+    public void addToCart(GroceryItem add) {
+        cart.add(add);
+        this.calculateTotal();
+    }
 
-    // public void removeFromCart(GroceryItem remove) {
-    //     cart.remove(remove);
-    //     this.calculateTotal();
-    // }
+    public void removeFromCart(GroceryItem remove) {
+        cart.remove(remove);
+        this.calculateTotal();
+    }
 
     public void writeReceiptToFile(String filename) {
         try (PrintWriter out = new PrintWriter(new FileWriter(filename))) {
