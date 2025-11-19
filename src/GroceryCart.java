@@ -18,4 +18,8 @@ public class GroceryCart {
         cart.remove(remove);
         this.calculateTotal();
     }
+
+    public void clearCart() {
+    	cart.clear();
+    }
 }
