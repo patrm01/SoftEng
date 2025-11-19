@@ -3,13 +3,13 @@ public class GroceryItem {
     private String name;
     private int stock;
     private double price;
-    private String filterFlag;
+    private String filter;
     public GroceryItem(String name, int stock, double price, int itemID) {
         this.name = name;
         this.stock = stock;
         this.price = price;
         this.itemId = itemID;
-        this.filterFlag = "";
+        this.filter = "";
     }
 
     public void setName(String name) {
@@ -36,12 +36,12 @@ public class GroceryItem {
     public int getItemId() {
         return itemId;
     }
-    public String getFilterFlag() {
-        return filterFlag;
+    public String getfilter() {
+        return filter;
     }
-    public void setFilterFlag(String filterFlag) {
-        if(filterFlag != null){
-            this.filterFlag = filterFlag;
+    public void setfilter(String filter) {
+        if(filter != null){
+            this.filter = filter;
         }
     }
 
