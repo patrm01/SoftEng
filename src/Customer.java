@@ -8,7 +8,7 @@ public class Customer {
     private double balance;
     private String firstName, lastName;
     private int customerAge;
-    private ArrayList<GroceryItem> cart;
+    private GroceryCart cart = new GroceryCart()
 
     public Customer(String paymentInfo, double balance, String firstName, String lastName, int customerAge) {
         this.paymentInfo = paymentInfo;
@@ -16,7 +16,6 @@ public class Customer {
         this.firstName = firstName;
         this.lastName = lastName;
         this.customerAge = customerAge;
-        cart = new ArrayList<>();
     }
 
     //defining boilerplate getters and setters
@@ -62,30 +61,30 @@ public class Customer {
 
     public void calculateTotal() {
         this.balance = 0;
-        for (GroceryItem item : cart) {
+        for (GroceryItem item : cart.getCart()) {
             balance += item.getPrice();
         }
     }
 
-    public ArrayList<GroceryItem> getCart() {
-        return cart;
-    }
+    // public ArrayList<GroceryItem> getCart() {
+    //     return cart;
+    // }
 
-    public void addToCart(GroceryItem add) {
-        cart.add(add);
-        this.calculateTotal();
-    }
+    // public void addToCart(GroceryItem add) {
+    //     cart.add(add);
+    //     this.calculateTotal();
+    // }
 
-    public void removeFromCart(GroceryItem remove) {
-        cart.remove(remove);
-        this.calculateTotal();
-    }
+    // public void removeFromCart(GroceryItem remove) {
+    //     cart.remove(remove);
+    //     this.calculateTotal();
+    // }
 
     public void writeReceiptToFile(String filename) {
         try (PrintWriter out = new PrintWriter(new FileWriter(filename))) {
             out.printf("%-20s %8s %10s%n", "Item", "Qty", "Price");
 
-            for (GroceryItem item : cart) {
+            for (GroceryItem item : cart.getCart()) {
                 String itemName = item.getName();
                 double price = item.getPrice();
                 int quantity = 1;
