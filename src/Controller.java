@@ -22,7 +22,7 @@ public class Controller {
     // Just placeholder, will use to validate customer or input
     public boolean validateData() {
         if (customer.getCustomerAge() <= 0) return false;
-        if (customer.getPaymentInfo() == null || customer.getPaymentInfo().length() != 12) return false;
+        if (customer.getPaymentInfo.getPaymentInfo() == null || customer.getPaymentInfo.getPaymentInfo().length() != 12) return false;
         return true;
     }
 
