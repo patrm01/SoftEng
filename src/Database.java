@@ -40,6 +40,9 @@ public class Database {
     }
 
     public ArrayList<GroceryItem> getFilteredList(ArrayList<String> filters) {
+        if(filters.isEmpty()) {
+            return getStoreList();
+        }
         ArrayList<GroceryItem> filteredList = new ArrayList<>();
 
         for (GroceryItem item : storeList) {
