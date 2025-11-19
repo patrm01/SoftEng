@@ -15,7 +15,7 @@ public class Database {
     public boolean removeItem(String itemName) {
         GroceryItem item = checkItemInDatabase(itemName);
         if (item != null) {
-            return storeList.remove(item);
+            removeItem(item);
         }
         return false;
     }
