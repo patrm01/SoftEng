@@ -36,13 +36,16 @@ public class GroceryItem {
     public int getItemId() {
         return itemId;
     }
-    public String getfilter() {
+    public String getFilter() {
         return filter;
     }
-    public void setfilter(String filter) {
+    public void setFilter(String filter) {
         if(filter != null){
             this.filter = filter;
         }
     }
 
+    public String toString(){
+        return "Item ID: " + itemId + ", Name: " + name + ", Stock: " + stock + ", Price: $" + price;
+    }
 }

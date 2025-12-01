@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class GroceryCart {
 	private ArrayList<GroceryItem> cart;
 	private double subTotal;
@@ -8,25 +10,27 @@ public class GroceryCart {
 	}
 
     public ArrayList<GroceryItem> getCart() {
-        return cart.clone();
+        return (ArrayList<GroceryItem>) cart.clone();
     }
 
     public void addToCart(GroceryItem add) {
         cart.add(add);
-        this.calculateTotal();
+        this.calculateSubtotal();
     }
 
     public void removeFromCart(GroceryItem remove) {
         cart.remove(remove);
-        this.calculateTotal();
+        this.calculateSubtotal();
     }
 
     public void clearCart() {
-    	cart.clear();
-    }	
+        cart.clear();
+        this.calculateSubtotal();
+    }
 
     public void calculateSubtotal(){
-    	for(GroceryItem item : cart) {
+    	this.subTotal = 0;
+        for(GroceryItem item : cart) {
     		this.subTotal += item.getPrice();
     	}
     }
@@ -36,6 +40,15 @@ public class GroceryCart {
     }
 
     public double calculateTotalWithTax() {
-    	return ((this.subTotal * taxRate) + this.subTotal)
+    	return ((this.subTotal * taxRate) + this.subTotal);
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(GroceryItem item : cart) {
+            sb.append(item.toString());
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }

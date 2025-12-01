@@ -21,9 +21,7 @@ public class Controller {
 
     // Just placeholder, will use to validate customer or input
     public boolean validateData() {
-        if (customer.getCustomerAge() <= 0) return false;
-        if (customer.getPaymentInfo.getPaymentInfo() == null || customer.getPaymentInfo.getPaymentInfo().length() != 12) return false;
-        return true;
+        return customer.getCustomerAge() <= 0 || customer.getPaymentInfo() != null && customer.getPaymentInfo().length() == 12;
     }
 
     // Just placeholder, will use to send something to interface
@@ -38,7 +36,7 @@ public class Controller {
         return database.getFilteredList(filters);
     }
 
-    public ArrayList<GroceryItem> getCart() {
+    public GroceryCart getCart() {
         return customer.getCart();
     }
 
@@ -49,4 +47,24 @@ public class Controller {
     public void removeFromCart(GroceryItem item) {
         customer.removeFromCart(item);
     }
+
+    public Database getDatabase() {
+        return database;
+    }
+
+    public void checkOut() {
+        double totalCost = customer.getCart().calculateTotalWithTax();
+
+        if (totalCost > customer.getBudget()) {
+            System.out.println("Insufficient funds to complete the purchase.");
+        } else if (!validateData()) {
+            System.out.println("Invalid data.");
+        } else {
+            customer.setBudget(customer.getBudget() - totalCost);
+            System.out.printf("Purchase successful! Remaining budget: %.2f%n", customer.getBudget());
+            customer.writeReceiptToFile("receipt.txt");
+            customer.getCart().clearCart();
+        }
+    }
+
 }

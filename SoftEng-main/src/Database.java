@@ -46,10 +46,15 @@ public class Database {
         ArrayList<GroceryItem> filteredList = new ArrayList<>();
 
         for (GroceryItem item : storeList) {
-            if (filters.contains(item.getFilterFlag())) {
+            if (filters.contains(item.getFilter())) {
                 filteredList.add(item);
             }
         }
         return filteredList;
     }
+
+    public void clearStore() {
+        storeList.clear();
+    }
+
 }

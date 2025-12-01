@@ -1,0 +1,4 @@
+Item                      Qty      Price
+
+Customer: John Doe
+Amount paid: 0.00

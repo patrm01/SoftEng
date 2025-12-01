@@ -8,7 +8,7 @@ public class Customer {
     private double budget;
     private String firstName, lastName;
     private int customerAge;
-    private GroceryCart cart = new GroceryCart()
+    private GroceryCart cart = new GroceryCart();
 
     public Customer(String paymentInfo, double budget, String firstName, String lastName, int customerAge) {
         this.paymentInfo = paymentInfo;
@@ -58,26 +58,13 @@ public class Customer {
             System.out.println("Customer Age is invalid.");
         }
     }
-
-    public void calculateTotal() {
-        this.balance = 0;
-        for (GroceryItem item : cart.getCart()) {
-            balance += item.getPrice();
-        }
-    }
-
-    public ArrayList<GroceryItem> getCart() {
-        return cart;
-    }
-
+    public GroceryCart getCart() { return cart; }
     public void addToCart(GroceryItem add) {
-        cart.add(add);
-        this.calculateTotal();
+        cart.addToCart(add);
     }
 
     public void removeFromCart(GroceryItem remove) {
-        cart.remove(remove);
-        this.calculateTotal();
+        cart.removeFromCart(remove);
     }
 
     public void writeReceiptToFile(String filename) {
@@ -93,9 +80,11 @@ public class Customer {
             }
             out.println();
             out.printf("Customer: %s %s%n", firstName, lastName);
-            out.printf("Amount paid: %.2f%n", balance);
+            out.printf("Amount paid: %.2f%n", cart.calculateTotalWithTax());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 }

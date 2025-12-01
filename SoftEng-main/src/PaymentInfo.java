@@ -1,4 +1,10 @@
 public class PaymentInfo {
+    private String paymentInfo;
+
+    public PaymentInfo(String paymentInfo) {
+        this.paymentInfo = paymentInfo;
+    }
+
     public String getPaymentInfo() {
         return paymentInfo;
     }
